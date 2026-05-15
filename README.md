@@ -38,9 +38,15 @@ Uploads are limited to MP4 files under 100 MB and under 10 seconds. Frames are r
 
 ## Local Run
 
-```bash
-pip install -r requirements.txt
+Use an isolated environment. Python 3.10 or 3.11 is recommended for this stack.
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 python app.py
 ```
+
+The SAM2 real-time fork builds a CUDA extension during installation. On Windows, the NVIDIA driver alone is not enough; you also need the CUDA Toolkit installed, `CUDA_HOME` set to the toolkit root, and `nvcc` available on `PATH`. If you do not want to build SAM2 locally, deploy on a GPU Hugging Face Space or use a Docker Space where CUDA build tooling is available.
 
 Training stays offline in the notebook. Deployment only loads the trained RF-DETR checkpoint and runs inference.

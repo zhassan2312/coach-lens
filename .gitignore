@@ -1,5 +1,7 @@
 __pycache__/
 *.pyc
+.agents/
+.venv/
 outputs/*
 uploads/*
 !outputs/.gitkeep
